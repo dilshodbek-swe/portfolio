@@ -17,7 +17,7 @@ const LogBook = () => {
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(
-          "https://portfolio-m60v.onrender.com/blogs"
+          "https://portfolio-m60v.onrendeer.com/blogs"
         );
         const blogsData = res.data;
         setBlogs(blogsData);

@@ -1,72 +1,27 @@
-import React from "react";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import { cn } from "../lib/utils"; 
-import { FaGithub } from 'react-icons/fa';
-import Lenis from 'lenis';
-import { useEffect,useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import ProjectImage from "./utils/ProjectImage";
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
+import Lenis from 'lenis'
+import { useEffect, useRef } from "react"
+import { FaGithub } from 'react-icons/fa'
+import { cn } from "../lib/utils"
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card"
+import ProjectImage from "./utils/ProjectImage"
 
 const projects = [
-    {
-    title: "Akira",
-    description:
-      "Akira — A sleek voice-agent that listens, understands, and responds in real time.",
-    link: "https://akira-gray.vercel.app/",
-    code: "https://github.com/ChaitanyaSai-Meka/Akira",
-    image: "/akira_voice_agent.png",
-    blurhash:"L02~TTwJ4mbIeRtBRzf5DzWT%Pj]"
-  },
-  {
-    title: "THE-VAULT",
-    description: "Architected a RAG system to enable real-time semantic search and Q&A over private PDF documents.",
-    link: "https://the-vault-smoky.vercel.app/",
-    code: "https://github.com/ChaitanyaSai-Meka/THE-VAULT",
-    image: "/the-vault.png",
-     blurhash:"L1TI,a?bWA_3IVofM{%M00t7Rjxu"
-  },
-  {
-    title: "Univa",
-    description:
-      "UNIVA — Document Search Platform",
-    link: "https://univa-ten.vercel.app/",
-    code: "https://github.com/ChaitanyaSai-Meka/UNIVA",
-    image: "/univa.png",
-    blurhash:"L1SPX|xvtn~q00t7_2Io00oe-pM|"
-  },
-  {
-    title: "Mepa",
-    description:
-      "Mepa - Metro Route Finder",
-    link: "https://mepa.vercel.app/",
-    code: "https://github.com/ChaitanyaSai-Meka/mepa",
-    image: "/mepa.png",
-    blurhash:"L2SF;N%M_4-;00WBRjj[00WB9Eaz"
-  },
   {
     title: "Apple Website Clone",
     description:
       "A modern, animated clone of the official Apple website made with smooth scroll and transitions.",
-    link: "https://apple-website-ecru-xi.vercel.app/",
-    code: "https://github.com/ChaitanyaSai-Meka/Apple_Website",
+    link: "",
+    code: "",
     image: "/Apple_website.png",
     blurhash:"L02$Hd9Z00~pneofp0WB00?a~V01"
   },
   {
-    title: "Movies Website",
-    description:
-      "Movie explorer website with sleek UI and live API integration.",
-    link: "",
-    code: "https://github.com/ChaitanyaSai-Meka/MoviesWeb_Project",
-    image: "/Movies.png",
-    blurhash:"LACZ35PqnOi_T0X9a|WA00+FIpkW"
-  },
-  {
     title: "CYBERFICTION",
     description: "Features smooth scrolling and logo animation using HTML, CSS, JS, Lenis, and GSAP. ",
-    link: "https://chaitanyasai-meka.github.io/CYBERFICTION/",
-    code: "https://github.com/ChaitanyaSai-Meka/CYBERFICTION",
+    link: "",
+    code: "",
     image: "/cyberfiction.png",
      blurhash:"LbOzMcWB_NxuR*t7RjRjogWBM{fk"
   },
@@ -75,17 +30,9 @@ const projects = [
     description:
       "Final capstone web project showcasing HTML and CSS skills.",
     link: "",
-    code: "https://github.com/ChaitanyaSai-Meka/Capstone_Project",
+    code: "",
     image: "/Capstone.png",
     blurhash:"LhLz?TRk~qoe-=azM{ay?cs.MxbH"
-  },
-  {
-    title: "Healthy Middle-Class India",
-    description: "Healthy Middle-Class India: Tackles obesity and lifestyle diseases with systemic solutions.",
-    link: "https://fste-chi.vercel.app",
-    code: "https://github.com/ChaitanyaSai-Meka/FSTE",
-    image: "/fste.png",
-    blurhash:"L1NAoU3}MZPp004N019c00UDI89H"
   },
   {
     title: "Coming Soon",
@@ -110,14 +57,15 @@ const Projects = () => {
       smooth: true, 
     });
 
+    let rafId;
     const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(scrollLineRef.current, {
+    const scrollTriggerInstance = gsap.to(scrollLineRef.current, {
       width: "100%",
       ease: "none",
       scrollTrigger: {
@@ -129,6 +77,8 @@ const Projects = () => {
     });
 
     return () => {
+      cancelAnimationFrame(rafId);
+      scrollTriggerInstance.scrollTrigger?.kill();
       lenis.destroy();
     };
   }, []);
@@ -225,7 +175,7 @@ const Projects = () => {
       </div>
       <div>
       <a 
-      href="https://github.com/ChaitanyaSai-Meka"
+      href="https://github.com/dilshodbek-swe"
       target="_blank"
       rel="noopener noreferrer"
       className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-base font-semibold leading-6  text-white inline-block">
