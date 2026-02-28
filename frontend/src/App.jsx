@@ -17,7 +17,6 @@ import Skills from './components/Skills'
 import Logbook from './components/LogBook'
 import NotFound from './components/NotFound'
 import { SpeedInsights } from '@vercel/speed-insights/react'
-import { Helmet } from 'react-helmet-async'
 
 function ChatBotWrapper() {
 	const location = useLocation()
@@ -69,73 +68,6 @@ function App() {
 
 	return (
 		<>
-			{/* Global SEO Metadata */}
-			<Helmet>
-				<title>Dilshodbek Gulomov | Full Stack Developer & AI Enthusiast</title>
-				<meta
-					name='description'
-					content='Official portfolio of Dilshodbek Gulomov, a full stack developer skilled in Python, React, and Next.js, with a strong passion for Machine Learning and AI. Explore projects, skills, and experience.'
-				/>
-				<link rel='canonical' href='https://your-domain.com/' />
-				<meta
-					property='og:title'
-					content='Dilshodbek Gulomov | Full Stack Developer'
-				/>
-				<meta
-					property='og:description'
-					content='Official portfolio of Dilshodbek Gulomov, a full stack developer skilled in Python, React, and Next.js, with a strong passion for Machine Learning and AI.'
-				/>
-				<meta property='og:type' content='website' />
-				<meta property='og:url' content='https://your-domain.com/' />
-				<meta
-					property='og:image'
-					content='https://your-domain.com/profile_pic.png'
-				/>
-				<meta
-					property='og:site_name'
-					content="Dilshodbek Gulomov's Portfolio"
-				/>
-				<meta name='twitter:card' content='summary_large_image' />
-				<meta name='twitter:creator' content='@YourTwitterHandle' />{' '}
-				{/* Replace or remove if you don't use Twitter */}
-				<meta
-					name='twitter:title'
-					content='Dilshodbek Gulomov | Full Stack Developer'
-				/>
-				<meta
-					name='twitter:description'
-					content='Official portfolio of Dilshodbek Gulomov, a full stack developer skilled in Python, React, and Next.js, with a strong passion for Machine Learning and AI.'
-				/>
-				<meta
-					name='twitter:image'
-					content='https://your-domain.com/profile_pic.png'
-				/>
-				<script type='application/ld+json'>
-					{`
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Dilshodbek Gulomov",
-              "url": "https://your-domain.com/",
-              "sameAs": [
-                "https://github.com/dilshodbek-swe",
-                "https://www.linkedin.com/in/dilshodbek-gulomov/"
-              ],
-              "jobTitle": "Full Stack Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance / Open Source"
-              },
-              "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "ELTE University"
-              },
-              "image": "https://your-domain.com/profile_pic.png",
-              "description": "Dilshodbek Gulomov is a passionate full-stack developer specializing in modern web technologies and Python, with a growing expertise in machine learning and deep learning, based in Budapest, Hungary."
-            }
-          `}
-				</script>
-			</Helmet>
 
 			{/* UI Flow */}
 			{!started ? (
